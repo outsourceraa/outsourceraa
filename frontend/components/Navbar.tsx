@@ -1,48 +1,92 @@
 "use client";
-import { useState } from "react";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white shadow-md relative z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-blue-950">
-          OUTSOURCERAA
-        </Link>
+    <>
+      {/* TOP NAVBAR */}
+      <header className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
 
-        {/* --- HAMBURGER BUTTON (THIS IS WHAT YOU WERE MISSING) --- */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
-          className="md:hidden p-2 text-gray-800"
-        >
-          <div className="w-6 h-0.5 bg-black mb-1.5"></div>
-          <div className="w-6 h-0.5 bg-black mb-1.5"></div>
-          <div className="w-6 h-0.5 bg-black"></div>
-        </button>
+          {/* LOGO */}
+          <Link href="/">
+            <h1 className="text-3xl font-bold text-blue-950">
+              OUTSOURCERAA
+            </h1>
+          </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
-          <Link href="/" className="font-medium text-gray-600">Home</Link>
-          <Link href="/about" className="font-medium text-gray-600">About</Link>
-          <Link href="/services" className="font-medium text-gray-600">Services</Link>
-          <Link href="/careers" className="font-medium text-gray-600">Careers</Link>
-          <Link href="/contact" className="bg-blue-600 text-white px-4 py-2 rounded">Contact</Link>
+          {/* DESKTOP MENU */}
+          <nav className="hidden md:flex gap-8 text-gray-700 font-medium">
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/services">Services</Link>
+            <Link href="/careers">Careers</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
+
+          {/* MOBILE MENU BUTTON */}
+          <button
+            className="md:hidden text-3xl"
+            onClick={() => setMenuOpen(true)}
+          >
+            ☰
+          </button>
+        </div>
+      </header>
+
+      {/* MOBILE SIDEBAR */}
+      <div
+        className={`fixed top-0 right-0 h-full w-[80%] bg-black text-white z-50 transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* CLOSE BUTTON */}
+        <div className="flex justify-end p-6">
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="text-3xl"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* MENU ITEMS */}
+        <div className="flex flex-col text-xl">
+
+          <Link
+            href="/about"
+            className="border-b border-gray-700 px-6 py-5"
+          >
+            About Us
+          </Link>
+
+          <Link
+            href="/services"
+            className="border-b border-gray-700 px-6 py-5"
+          >
+            Our Solutions
+          </Link>
+
+          <Link
+            href="/careers"
+            className="border-b border-gray-700 px-6 py-5"
+          >
+            Careers
+          </Link>
+
+          <Link
+            href="/contact"
+            className="border-b border-gray-700 px-6 py-5"
+          >
+            Contact Us
+          </Link>
+
         </div>
       </div>
-
-      {/* Mobile Dropdown */}
-      {isOpen && (
-        <div className="md:hidden bg-gray-900 text-white w-full p-6 flex flex-col gap-4">
-          <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
-          <Link href="/services" onClick={() => setIsOpen(false)}>Services</Link>
-          <Link href="/careers" onClick={() => setIsOpen(false)}>Careers</Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
-        </div>
-      )}
-    </nav>
+    </>
   );
 }
