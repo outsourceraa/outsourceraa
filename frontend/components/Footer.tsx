@@ -1,3 +1,5 @@
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="bg-slate-900 text-gray-300 py-16 px-8 font-sans">
@@ -27,6 +29,16 @@ export default function Footer() {
             <span className="block font-medium text-slate-300 mb-1">Email:</span>
             <a href="mailto:info@outsourceraa.com" className="hover:text-blue-400 transition-colors">info@outsourceraa.com</a>
           </p>
+
+          {/* SOCIAL ICONS IN FOOTER */}
+          <div className="flex gap-4 mt-2">
+            <a href="https://www.instagram.com/OUTSOURCERAA" target="_blank" className="text-2xl hover:text-blue-400 transition-colors">
+              <FaInstagram />
+            </a>
+            <a href="https://www.linkedin.com/company/OUTSOURCERAA" target="_blank" className="text-2xl hover:text-blue-400 transition-colors">
+              <FaLinkedin />
+            </a>
+          </div>
 
           <p className="text-slate-400 mt-2">
             <span className="block font-medium text-slate-300 mb-1">Location:</span>
