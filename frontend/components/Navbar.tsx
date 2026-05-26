@@ -13,7 +13,7 @@ export default function Navbar() {
           OUTSOURCERAA
         </Link>
 
-        {/* This is the Hamburger Button (The 3 lines) */}
+        {/* --- HAMBURGER BUTTON (THIS IS WHAT YOU WERE MISSING) --- */}
         <button 
           onClick={() => setIsOpen(!isOpen)} 
           className="md:hidden p-2 text-gray-800"
@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="w-6 h-0.5 bg-black"></div>
         </button>
 
-        {/* Desktop Links (Hidden on mobile) */}
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="/" className="font-medium text-gray-600">Home</Link>
           <Link href="/about" className="font-medium text-gray-600">About</Link>
@@ -33,7 +33,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu (Only shows when button is clicked) */}
+      {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-gray-900 text-white w-full p-6 flex flex-col gap-4">
           <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
