@@ -11,8 +11,7 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="pt-32 pb-24 text-center px-6">
-        <h1 className="text-5xl font-extrabold text-blue-950">OUTSOURCERAA</h1>
-        <p className="mt-6 text-xl text-gray-600">Your partner for Hiring & Payroll Solutions.</p>
+<h1 className="text-4xl md:text-5xl font-extrabold text-blue-950">OUTSOURCERAA</h1>        <p className="mt-6 text-xl text-gray-600">Your partner for Hiring & Payroll Solutions.</p>
       </section>
 
       {/* SERVICES SECTION */}
